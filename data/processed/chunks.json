@@ -1,156 +1,474 @@
 [
   {
-    "chunk_id": "chunk_1",
-    "source": "api_guidelines.md",
-    "text": "Title: API Development Guidelines Tags: engineering, api, rest Type: guideline ---------------------------------------- # API Development Guidelines All APIs should follow REST standards. Best Practices: - Use proper HTTP methods - Validate request payloads - Return JSON responses - Include status codes - Write API documentation",
+    "id": "chunk_1",
+    "text": "Difference between execute(),executeQuerry(),executeUpdate() & executeBatch()\r\n\r\nexecute()\r\n---\r\n--> it is a general purpose method\r\n--> any type of querry we can execute(SELECT, INSERT, UPDATE, DELETE)\r\n--> return type is Boolean\r\n--> SELECT querries are allowed\r\n\r\nexecuteUpdate()\r\n---\r\n--> executeUpdate is use to execute insert, update & delete\r\n--> return type of executrUpdate is int\r\n--> select querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\api_guidelines.md",
-      "source_name": "api_guidelines.md",
-      "chunk_size": 330
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_2",
-    "source": "coding_standards.md",
-    "text": "Title: Engineering Coding Standards Tags: engineering, quality, clean-code Type: guideline ---------------------------------------- # Engineering Coding Standards Maintained code quality ensures system scalability and seamless collaboration. Standards: - Follow language-specific style guides (e.g., PEP 8 for Python) - Keep functions small and focused on a single responsibility - Write meaningful unit tests covering at least 80% of new code - Ensure every PR goes through at least one peer review ",
+    "id": "chunk_2",
+    "text": "t querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--> the return type of executeQuerry is result set\r\n--> SELECT querry is allowed\r\n\r\n\r\nexecuteBatch()\r\n---\r\n--> it is used to execute multiple DML Querry\r\n--> the return type of executeBatch is int[] array\r\n--> select querry are not allowed\r\n\r\n\r\nAdvantages of jdbc\r\n---\r\n--> jdbc is platform independent , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily s",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\coding_standards.md",
-      "source_name": "coding_standards.md",
-      "chunk_size": 500
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_3",
-    "source": "coding_standards.md",
-    "text": "nit tests covering at least 80% of new code - Ensure every PR goes through at least one peer review before merging",
+    "id": "chunk_3",
+    "text": " , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily switch between databases like MySQL, Oracle, PostgreSQL, SqL by changing only Driver url not the entire code.\r\n\r\n--> Supports multiple sql operations :- jdbc support SELECT, INSERT, UPDATE, DELETE, BATCHEXECUTION , stored procedures and transaction, hence it can perform all the data    base task.\r\n\r\n--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and co",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\coding_standards.md",
-      "source_name": "coding_standards.md",
-      "chunk_size": 114
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_4",
-    "source": "customer_support_workflow.md",
-    "text": "Title: Customer Support Workflow Tags: support, operations, helpdesk Type: procedure ---------------------------------------- # Customer Support Workflow Standard operational workflow for resolving client queries efficiently. Workflow: - Tier 1: Initial triage and basic troubleshooting within 2 hours - Tier 2: Escalation to technical support specialists if unresolved - Tier 3: Critical bugs assigned directly to the engineering triage team - Always follow up with the customer to confirm satisfact",
+    "id": "chunk_4",
+    "text": "--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and connection pooling.\r\n\r\n\r\n\r\n\r\nServlet\r\n\u00a0    Servlet is an API or interface which is used to communicate between frontend(Html) to Backend(Java prog, database)\r\n-->> Servlet is an interface or API for which implementation is provided by a java program that runs on a servlet container(Tomcat Server)\r\n\u00a0    and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition)",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\customer_support_workflow.md",
-      "source_name": "customer_support_workflow.md",
-      "chunk_size": 500
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_5",
-    "source": "customer_support_workflow.md",
-    "text": "ed directly to the engineering triage team - Always follow up with the customer to confirm satisfaction before closing a ticket",
+    "id": "chunk_5",
+    "text": "  and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition) it is responsible for request processing,\r\n\u00a0    response generation, session management, communication  with database.\r\n\r\n\r\nAbstract Method that present Inside Servlet Interface\r\n---\r\n\r\ninterface Servlet {\r\n\u00a0       void init(ServletConfig);  //-->Use to initialize the servlet/server\r\n\u00a0       void service(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig ge",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\customer_support_workflow.md",
-      "source_name": "customer_support_workflow.md",
-      "chunk_size": 127
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_6",
-    "source": "database_backup_sop.md",
-    "text": "Title: Database Backup SOP Tags: infrastructure, database, backup Type: procedure ---------------------------------------- # Database Backup SOP Procedures to safeguard company data assets against loss or corruption. SOP Details: - Automated snapshots are taken every 4 hours and stored in AWS S3 - Full database logical backups are completed nightly at 02:00 UTC - Retain daily backups for 30 days, monthly backups for 1 year - Perform a simulated recovery test on the first Monday of every month",
+    "id": "chunk_6",
+    "text": "ervice(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig getServletConfig( );\r\n\u00a0       String getServletInfo( );\r\n\u00a0       void destroy( );\r\n\r\n}\r\n\r\nTypes of servlet\r\n\r\n1)GenericServlet --> It provides implementation for all the methods present in servlet interface except service method.\r\n\u00a0                --> generic servlet is an abstract class that will inherit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independe",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\database_backup_sop.md",
-      "source_name": "database_backup_sop.md",
-      "chunk_size": 497
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_7",
-    "source": "database_backup_sop.md",
-    "text": "monthly backups for 1 year - Perform a simulated recovery test on the first Monday of every month",
+    "id": "chunk_7",
+    "text": "erit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independent and we need to override service( )  method.\r\n\r\n\r\n2)HttpServlet    --> It is a abstract class which inherits to GenericServlet,\r\n\u00a0                   it is Specially designed to handle Http specific request.\r\n\u00a0                   it provide http specific request methods like\r\n\r\n\u00a0\t\t\tget : fetch data\r\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting t",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\database_backup_sop.md",
-      "source_name": "database_backup_sop.md",
-      "chunk_size": 97
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_8",
-    "source": "deployment_process.md",
-    "text": "Title: CI/CD Deployment Process Tags: devops, cicd, deployment Type: procedure ---------------------------------------- # CI/CD Deployment Process Standard operating procedure for moving code from staging to production. Steps: 1. Trigger automated testing pipeline on the release branch 2. Verify all checks pass and manual QA sign-off is granted 3. Initiate blue-green deployment via the orchestration platform 4. Monitor system metrics and error logs for 15 minutes post-release 5. Execute rollback",
+    "id": "chunk_8",
+    "text": "\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting the data\r\n\r\n\u00a0                    --> HttpServlet supports session management.\r\n\r\nQ: What is Session Management ?\r\n\r\nDifference between Servlet, Generic Servlet, httpServlet\r\n\r\nServlet ; \r\nit is an interface\r\nit is a packaged in javax.servlet\r\nit is base interface for all types of servlets\r\nit does not support any specific protocol\r\nfor all the five abstract method implementation should be provided ",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\deployment_process.md",
-      "source_name": "deployment_process.md",
-      "chunk_size": 500
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_9",
-    "source": "deployment_process.md",
-    "text": "on platform 4. Monitor system metrics and error logs for 15 minutes post-release 5. Execute rollback strategy immediately if anomalies are detected",
+    "id": "chunk_9",
+    "text": "t support any specific protocol\r\nfor all the five abstract method implementation should be provided i.e init( ), getServletConfig( ), getServletInfo( ), service( ), destroy( )\r\nit is difficult to write code and handle the code\r\nit is rarely implemented directly\r\n\r\n\t\r\n\r\nGenericServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet\r\nit is protocol independent servlet\r\nit does not support any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\deployment_process.md",
-      "source_name": "deployment_process.md",
-      "chunk_size": 147
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_10",
-    "source": "employee_onboarding.md",
-    "text": "Title: Employee Onboarding SOP Tags: hr, onboarding, sop Type: procedure ---------------------------------------- # Employee Onboarding SOP All new employees must complete onboarding within 5 days. Steps: 1. Create company email 2. Join Slack workspace 3. Setup development environment 4. Read security policies 5. Attend orientation meeting",
+    "id": "chunk_10",
+    "text": "port any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r\nit is less difficult to write and maintain the code as compare to servlet\r\nit is implemented for non http protocols like Smtp, Ftp etc.\r\n\r\n\r\nHttpServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet.http\r\nit is http specific servlet\r\nit supports http protocol i.e GET, POST, PUT, DELETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\ni",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\employee_onboarding.md",
-      "source_name": "employee_onboarding.md",
-      "chunk_size": 341
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
     }
   },
   {
-    "chunk_id": "chunk_11",
-    "source": "flocard_overview.md",
-    "text": "Title: FloCard Overview Tags: product, overview, nfc Type: documentation ---------------------------------------- # FloCard Overview FloCard is a digital business card platform that allows professionals to share contact information instantly using QR codes and NFC technology. Key Features: - Digital profiles - QR sharing - Team management - Analytics dashboard",
+    "id": "chunk_11",
+    "text": "LETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\nit is very easy to write and maintain the code\r\nit is mostly implemented by all the classes or java web application\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsendRedirect()\r\n\r\n\r\n\r\nbrowser sends a new request to the new URL, URL changes will be seen in the browser\r\n\r\nQ. When to use sendRedirected( )\r\n\twhen we want to go to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want u",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\flocard_overview.md",
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_12",
+    "text": " to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want user to see new URL.\r\n\r\n\r\nDiffarence between Forward() method and sendRedirected()\r\n\r\nforward( )\r\n-----------\r\nforward() method is present in RequestDispatcher interface.\r\nit will happen at server side.\r\nURL does not change in the browser.\r\nfaster in execution.\r\nData is preserved.\r\nUsed for internal navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present i",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_13",
+    "text": "navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present in HttpServlet response.\r\nit happens at client side (Browser Side).\r\nURL changes will be seen in the browser.\r\nSlower in execution.\r\ndata is lost.\r\nUsed for external redirect or avoid form resubmission.\r\nIt is less secure.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_14",
+    "text": "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_15",
+    "text": "Difference between execute(),executeQuerry(),executeUpdate() & executeBatch()\r\n\r\nexecute()\r\n---\r\n--> it is a general purpose method\r\n--> any type of querry we can execute(SELECT, INSERT, UPDATE, DELETE)\r\n--> return type is Boolean\r\n--> SELECT querries are allowed\r\n\r\nexecuteUpdate()\r\n---\r\n--> executeUpdate is use to execute insert, update & delete\r\n--> return type of executrUpdate is int\r\n--> select querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_16",
+    "text": "t querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--> the return type of executeQuerry is result set\r\n--> SELECT querry is allowed\r\n\r\n\r\nexecuteBatch()\r\n---\r\n--> it is used to execute multiple DML Querry\r\n--> the return type of executeBatch is int[] array\r\n--> select querry are not allowed\r\n\r\n\r\nAdvantages of jdbc\r\n---\r\n--> jdbc is platform independent , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily s",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_17",
+    "text": " , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily switch between databases like MySQL, Oracle, PostgreSQL, SqL by changing only Driver url not the entire code.\r\n\r\n--> Supports multiple sql operations :- jdbc support SELECT, INSERT, UPDATE, DELETE, BATCHEXECUTION , stored procedures and transaction, hence it can perform all the data    base task.\r\n\r\n--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and co",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_18",
+    "text": "--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and connection pooling.\r\n\r\n\r\n\r\n\r\nServlet\r\n\u00a0    Servlet is an API or interface which is used to communicate between frontend(Html) to Backend(Java prog, database)\r\n-->> Servlet is an interface or API for which implementation is provided by a java program that runs on a servlet container(Tomcat Server)\r\n\u00a0    and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition)",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_19",
+    "text": "  and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition) it is responsible for request processing,\r\n\u00a0    response generation, session management, communication  with database.\r\n\r\n\r\nAbstract Method that present Inside Servlet Interface\r\n---\r\n\r\ninterface Servlet {\r\n\u00a0       void init(ServletConfig);  //-->Use to initialize the servlet/server\r\n\u00a0       void service(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig ge",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_20",
+    "text": "ervice(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig getServletConfig( );\r\n\u00a0       String getServletInfo( );\r\n\u00a0       void destroy( );\r\n\r\n}\r\n\r\nTypes of servlet\r\n\r\n1)GenericServlet --> It provides implementation for all the methods present in servlet interface except service method.\r\n\u00a0                --> generic servlet is an abstract class that will inherit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independe",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_21",
+    "text": "erit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independent and we need to override service( )  method.\r\n\r\n\r\n2)HttpServlet    --> It is a abstract class which inherits to GenericServlet,\r\n\u00a0                   it is Specially designed to handle Http specific request.\r\n\u00a0                   it provide http specific request methods like\r\n\r\n\u00a0\t\t\tget : fetch data\r\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting t",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_22",
+    "text": "\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting the data\r\n\r\n\u00a0                    --> HttpServlet supports session management.\r\n\r\nQ: What is Session Management ?\r\n\r\nDifference between Servlet, Generic Servlet, httpServlet\r\n\r\nServlet ; \r\nit is an interface\r\nit is a packaged in javax.servlet\r\nit is base interface for all types of servlets\r\nit does not support any specific protocol\r\nfor all the five abstract method implementation should be provided ",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_23",
+    "text": "t support any specific protocol\r\nfor all the five abstract method implementation should be provided i.e init( ), getServletConfig( ), getServletInfo( ), service( ), destroy( )\r\nit is difficult to write code and handle the code\r\nit is rarely implemented directly\r\n\r\n\t\r\n\r\nGenericServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet\r\nit is protocol independent servlet\r\nit does not support any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_24",
+    "text": "port any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r\nit is less difficult to write and maintain the code as compare to servlet\r\nit is implemented for non http protocols like Smtp, Ftp etc.\r\n\r\n\r\nHttpServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet.http\r\nit is http specific servlet\r\nit supports http protocol i.e GET, POST, PUT, DELETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\ni",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_25",
+    "text": "LETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\nit is very easy to write and maintain the code\r\nit is mostly implemented by all the classes or java web application\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsendRedirect()\r\n\r\n\r\n\r\nbrowser sends a new request to the new URL, URL changes will be seen in the browser\r\n\r\nQ. When to use sendRedirected( )\r\n\twhen we want to go to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want u",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_26",
+    "text": " to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want user to see new URL.\r\n\r\n\r\nDiffarence between Forward() method and sendRedirected()\r\n\r\nforward( )\r\n-----------\r\nforward() method is present in RequestDispatcher interface.\r\nit will happen at server side.\r\nURL does not change in the browser.\r\nfaster in execution.\r\nData is preserved.\r\nUsed for internal navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present i",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_27",
+    "text": "navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present in HttpServlet response.\r\nit happens at client side (Browser Side).\r\nURL changes will be seen in the browser.\r\nSlower in execution.\r\ndata is lost.\r\nUsed for external redirect or avoid form resubmission.\r\nIt is less secure.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_28",
+    "text": "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_29",
+    "text": "Difference between execute(),executeQuerry(),executeUpdate() & executeBatch()\r\n\r\nexecute()\r\n---\r\n--> it is a general purpose method\r\n--> any type of querry we can execute(SELECT, INSERT, UPDATE, DELETE)\r\n--> return type is Boolean\r\n--> SELECT querries are allowed\r\n\r\nexecuteUpdate()\r\n---\r\n--> executeUpdate is use to execute insert, update & delete\r\n--> return type of executrUpdate is int\r\n--> select querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_30",
+    "text": "t querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--> the return type of executeQuerry is result set\r\n--> SELECT querry is allowed\r\n\r\n\r\nexecuteBatch()\r\n---\r\n--> it is used to execute multiple DML Querry\r\n--> the return type of executeBatch is int[] array\r\n--> select querry are not allowed\r\n\r\n\r\nAdvantages of jdbc\r\n---\r\n--> jdbc is platform independent , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily s",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_31",
+    "text": " , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily switch between databases like MySQL, Oracle, PostgreSQL, SqL by changing only Driver url not the entire code.\r\n\r\n--> Supports multiple sql operations :- jdbc support SELECT, INSERT, UPDATE, DELETE, BATCHEXECUTION , stored procedures and transaction, hence it can perform all the data    base task.\r\n\r\n--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and co",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_32",
+    "text": "--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and connection pooling.\r\n\r\n\r\n\r\n\r\nServlet\r\n\u00a0    Servlet is an API or interface which is used to communicate between frontend(Html) to Backend(Java prog, database)\r\n-->> Servlet is an interface or API for which implementation is provided by a java program that runs on a servlet container(Tomcat Server)\r\n\u00a0    and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition)",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_33",
+    "text": "  and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition) it is responsible for request processing,\r\n\u00a0    response generation, session management, communication  with database.\r\n\r\n\r\nAbstract Method that present Inside Servlet Interface\r\n---\r\n\r\ninterface Servlet {\r\n\u00a0       void init(ServletConfig);  //-->Use to initialize the servlet/server\r\n\u00a0       void service(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig ge",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_34",
+    "text": "ervice(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig getServletConfig( );\r\n\u00a0       String getServletInfo( );\r\n\u00a0       void destroy( );\r\n\r\n}\r\n\r\nTypes of servlet\r\n\r\n1)GenericServlet --> It provides implementation for all the methods present in servlet interface except service method.\r\n\u00a0                --> generic servlet is an abstract class that will inherit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independe",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_35",
+    "text": "erit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independent and we need to override service( )  method.\r\n\r\n\r\n2)HttpServlet    --> It is a abstract class which inherits to GenericServlet,\r\n\u00a0                   it is Specially designed to handle Http specific request.\r\n\u00a0                   it provide http specific request methods like\r\n\r\n\u00a0\t\t\tget : fetch data\r\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting t",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_36",
+    "text": "\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting the data\r\n\r\n\u00a0                    --> HttpServlet supports session management.\r\n\r\nQ: What is Session Management ?\r\n\r\nDifference between Servlet, Generic Servlet, httpServlet\r\n\r\nServlet ; \r\nit is an interface\r\nit is a packaged in javax.servlet\r\nit is base interface for all types of servlets\r\nit does not support any specific protocol\r\nfor all the five abstract method implementation should be provided ",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_37",
+    "text": "t support any specific protocol\r\nfor all the five abstract method implementation should be provided i.e init( ), getServletConfig( ), getServletInfo( ), service( ), destroy( )\r\nit is difficult to write code and handle the code\r\nit is rarely implemented directly\r\n\r\n\t\r\n\r\nGenericServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet\r\nit is protocol independent servlet\r\nit does not support any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_38",
+    "text": "port any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r\nit is less difficult to write and maintain the code as compare to servlet\r\nit is implemented for non http protocols like Smtp, Ftp etc.\r\n\r\n\r\nHttpServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet.http\r\nit is http specific servlet\r\nit supports http protocol i.e GET, POST, PUT, DELETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\ni",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_39",
+    "text": "LETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\nit is very easy to write and maintain the code\r\nit is mostly implemented by all the classes or java web application\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsendRedirect()\r\n\r\n\r\n\r\nbrowser sends a new request to the new URL, URL changes will be seen in the browser\r\n\r\nQ. When to use sendRedirected( )\r\n\twhen we want to go to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want u",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_40",
+    "text": " to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want user to see new URL.\r\n\r\n\r\nDiffarence between Forward() method and sendRedirected()\r\n\r\nforward( )\r\n-----------\r\nforward() method is present in RequestDispatcher interface.\r\nit will happen at server side.\r\nURL does not change in the browser.\r\nfaster in execution.\r\nData is preserved.\r\nUsed for internal navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present i",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_41",
+    "text": "navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present in HttpServlet response.\r\nit happens at client side (Browser Side).\r\nURL changes will be seen in the browser.\r\nSlower in execution.\r\ndata is lost.\r\nUsed for external redirect or avoid form resubmission.\r\nIt is less secure.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_42",
+    "text": "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_43",
+    "text": "Difference between execute(),executeQuerry(),executeUpdate() & executeBatch()\r\n\r\nexecute()\r\n---\r\n--> it is a general purpose method\r\n--> any type of querry we can execute(SELECT, INSERT, UPDATE, DELETE)\r\n--> return type is Boolean\r\n--> SELECT querries are allowed\r\n\r\nexecuteUpdate()\r\n---\r\n--> executeUpdate is use to execute insert, update & delete\r\n--> return type of executrUpdate is int\r\n--> select querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_44",
+    "text": "t querry are not allowed\r\n\r\n\r\nexecuteQuerry()\r\n---\r\n--> it is used to execute only Select Querry\r\n--> the return type of executeQuerry is result set\r\n--> SELECT querry is allowed\r\n\r\n\r\nexecuteBatch()\r\n---\r\n--> it is used to execute multiple DML Querry\r\n--> the return type of executeBatch is int[] array\r\n--> select querry are not allowed\r\n\r\n\r\nAdvantages of jdbc\r\n---\r\n--> jdbc is platform independent , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily s",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_45",
+    "text": " , jdbc is a part of java so the code runs on any OS.\r\n\r\n--> Database independent :- we can easily switch between databases like MySQL, Oracle, PostgreSQL, SqL by changing only Driver url not the entire code.\r\n\r\n--> Supports multiple sql operations :- jdbc support SELECT, INSERT, UPDATE, DELETE, BATCHEXECUTION , stored procedures and transaction, hence it can perform all the data    base task.\r\n\r\n--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and co",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_46",
+    "text": "--> Faster in performance, jdbc improve performance by using preparedStaement, batchExecution and connection pooling.\r\n\r\n\r\n\r\n\r\nServlet\r\n\u00a0    Servlet is an API or interface which is used to communicate between frontend(Html) to Backend(Java prog, database)\r\n-->> Servlet is an interface or API for which implementation is provided by a java program that runs on a servlet container(Tomcat Server)\r\n\u00a0    and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition)",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_47",
+    "text": "  and it is used to create dynamic web pages\r\n-->> Servlet is a part od JEE(java enterprise edition) it is responsible for request processing,\r\n\u00a0    response generation, session management, communication  with database.\r\n\r\n\r\nAbstract Method that present Inside Servlet Interface\r\n---\r\n\r\ninterface Servlet {\r\n\u00a0       void init(ServletConfig);  //-->Use to initialize the servlet/server\r\n\u00a0       void service(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig ge",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_48",
+    "text": "ervice(req, resp);   //--> take the request process it and return response\r\n\u00a0       ServletConfig getServletConfig( );\r\n\u00a0       String getServletInfo( );\r\n\u00a0       void destroy( );\r\n\r\n}\r\n\r\nTypes of servlet\r\n\r\n1)GenericServlet --> It provides implementation for all the methods present in servlet interface except service method.\r\n\u00a0                --> generic servlet is an abstract class that will inherit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independe",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_49",
+    "text": "erit to servlet interface.\r\n\u00a0                --> Genericservlet abstract class is protocol independent and we need to override service( )  method.\r\n\r\n\r\n2)HttpServlet    --> It is a abstract class which inherits to GenericServlet,\r\n\u00a0                   it is Specially designed to handle Http specific request.\r\n\u00a0                   it provide http specific request methods like\r\n\r\n\u00a0\t\t\tget : fetch data\r\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting t",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_50",
+    "text": "\n\u00a0\t\t\tpost : sends data or submits data\r\n\u00a0\t\t\tput : for updating the data\r\n\u00a0\t\t\tdelete : for deleting the data\r\n\r\n\u00a0                    --> HttpServlet supports session management.\r\n\r\nQ: What is Session Management ?\r\n\r\nDifference between Servlet, Generic Servlet, httpServlet\r\n\r\nServlet ; \r\nit is an interface\r\nit is a packaged in javax.servlet\r\nit is base interface for all types of servlets\r\nit does not support any specific protocol\r\nfor all the five abstract method implementation should be provided ",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_51",
+    "text": "t support any specific protocol\r\nfor all the five abstract method implementation should be provided i.e init( ), getServletConfig( ), getServletInfo( ), service( ), destroy( )\r\nit is difficult to write code and handle the code\r\nit is rarely implemented directly\r\n\r\n\t\r\n\r\nGenericServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet\r\nit is protocol independent servlet\r\nit does not support any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_52",
+    "text": "port any protocol\r\ndefault implementation is provided, only service( ) method is abstract in nature\r\nit is less difficult to write and maintain the code as compare to servlet\r\nit is implemented for non http protocols like Smtp, Ftp etc.\r\n\r\n\r\nHttpServlet ; \r\nit is an abstract class\r\nit is a packaged in javax.servlet.http\r\nit is http specific servlet\r\nit supports http protocol i.e GET, POST, PUT, DELETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\ni",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_53",
+    "text": "LETE ETC.\r\nit provides http specific methods i.e doGet( ), doPost( ), doPut( ), doDelete( ) etc..\r\nit is very easy to write and maintain the code\r\nit is mostly implemented by all the classes or java web application\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nsendRedirect()\r\n\r\n\r\n\r\nbrowser sends a new request to the new URL, URL changes will be seen in the browser\r\n\r\nQ. When to use sendRedirected( )\r\n\twhen we want to go to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want u",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_54",
+    "text": " to a website out side of our project.\r\n\tyou want to redirect after insertion the data.\r\n\tyou want user to see new URL.\r\n\r\n\r\nDiffarence between Forward() method and sendRedirected()\r\n\r\nforward( )\r\n-----------\r\nforward() method is present in RequestDispatcher interface.\r\nit will happen at server side.\r\nURL does not change in the browser.\r\nfaster in execution.\r\nData is preserved.\r\nUsed for internal navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present i",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_55",
+    "text": "navigation.\r\nIt is more secure.\r\n\r\n\r\n\r\nsendRedirect( )\r\n---------------\r\nsendRedirect() is present in HttpServlet response.\r\nit happens at client side (Browser Side).\r\nURL changes will be seen in the browser.\r\nSlower in execution.\r\ndata is lost.\r\nUsed for external redirect or avoid form resubmission.\r\nIt is less secure.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_56",
+    "text": "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "metadata": {
+      "source_name": "jdbcnoteeeedee.txt",
+      "file_type": "txt"
+    }
+  },
+  {
+    "id": "chunk_57",
+    "text": "Title: FloCard Overview\r\nTags: product, overview, nfc\r\nType: documentation\r\n----------------------------------------\r\n\r\n# FloCard Overview\r\n\r\nFloCard is a digital business card platform that allows professionals to share contact information instantly using QR codes and NFC technology.\r\n\r\nKey Features:\r\n- Digital profiles\r\n- QR sharing\r\n- Team management\r\n- Analytics dashboard\r\n",
+    "metadata": {
       "source_name": "flocard_overview.md",
-      "chunk_size": 362
+      "file_type": "md"
     }
   },
   {
-    "chunk_id": "chunk_12",
-    "source": "leave_policy.md",
-    "text": "Title: Company Leave Policy Tags: hr, benefits, policy Type: policy ---------------------------------------- # Company Leave Policy Our leave policy ensures employees get adequate rest and personal time. Guidelines: - 20 days of paid annual leave per calendar year - Up to 10 days of sick leave with medical certificate - Maternity leave (26 weeks) and Paternity leave (4 weeks) - All leave requests must be submitted via the HR portal 2 weeks in advance",
+    "id": "chunk_58",
+    "text": "Title: FloCard Overview\r\nTags: product, overview, nfc\r\nType: documentation\r\n----------------------------------------\r\n\r\n# FloCard Overview\r\n\r\nFloCard is a digital business card platform that allows professionals to share contact information instantly using QR codes and NFC technology.\r\n\r\nKey Features:\r\n- Digital profiles\r\n- QR sharing\r\n- Team management\r\n- Analytics dashboard\r\n",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\leave_policy.md",
-      "source_name": "leave_policy.md",
-      "chunk_size": 454
+      "source_name": "flocard_overview.md",
+      "file_type": "md"
     }
   },
   {
-    "chunk_id": "chunk_13",
-    "source": "leave_policy.md",
-    "text": "must be submitted via the HR portal 2 weeks in advance",
+    "id": "chunk_59",
+    "text": "Title: FloCard Overview\r\nTags: product, overview, nfc\r\nType: documentation\r\n----------------------------------------\r\n\r\n# FloCard Overview\r\n\r\nFloCard is a digital business card platform that allows professionals to share contact information instantly using QR codes and NFC technology.\r\n\r\nKey Features:\r\n- Digital profiles\r\n- QR sharing\r\n- Team management\r\n- Analytics dashboard\r\n",
     "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\leave_policy.md",
-      "source_name": "leave_policy.md",
-      "chunk_size": 54
-    }
-  },
-  {
-    "chunk_id": "chunk_14",
-    "source": "security_policy.md",
-    "text": "Title: Security Policy Tags: security, compliance, policy Type: policy ---------------------------------------- # Security Policy Employees must never share passwords. Security Rules: - Use MFA authentication - Rotate passwords every 90 days - Report phishing emails - Lock systems when away",
-    "metadata": {
-      "file_type": "markdown",
-      "source_path": "data\\raw\\security_policy.md",
-      "source_name": "security_policy.md",
-      "chunk_size": 291
+      "source_name": "flocard_overview.md",
+      "file_type": "md"
     }
   }
 ]

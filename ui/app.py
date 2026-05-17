@@ -11,7 +11,45 @@ st.set_page_config(
     page_icon="🤖",
     layout="wide"
 )
+uploaded_file = st.file_uploader(
+    "Upload Document",
+    type=["txt", "md", "pdf", "docx", "csv"]
+)
 
+
+if uploaded_file:
+
+    files = {
+        "file": (
+            uploaded_file.name,
+            uploaded_file.getvalue(),
+            uploaded_file.type
+        )
+    }
+
+    response = requests.post(
+        "http://127.0.0.1:8000/upload",
+        files=files
+    )
+
+    st.success(response.json()["message"])
+
+# if uploaded_file:
+
+    save_path = f"data/uploads/{uploaded_file.name}"
+
+    with open(save_path, "wb") as f:
+        f.write(uploaded_file.getbuffer())
+
+    st.success("File uploaded successfully")
+
+if st.button("Extract & Index"):
+
+    response = requests.post(
+        "http://127.0.0.1:8000/reindex"
+    )
+
+    st.success(response.json()["message"])
 
 st.title("🤖 AI Knowledge Assistant")
 
