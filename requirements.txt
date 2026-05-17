@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+streamlit
+requests
+sentence-transformers
+chromadb
+ollama
+pypdf
+python-docx
+pandas
+openpyxl
+matplotlib
