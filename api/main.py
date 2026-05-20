@@ -12,6 +12,11 @@ from core.utils import chunk_text
 from database import db
 from database.db import SessionLocal
 from database.models import Document
+from fastapi.responses import FileResponse
+from core.export_utils import (
+    export_to_word,
+    export_to_excel
+)
 
 
 app = FastAPI(
@@ -268,3 +273,39 @@ def reindex_documents():
 #     return {
 #         "message": "Reindexing completed"
 #     }
+
+
+class ExportRequest(BaseModel):
+    question: str
+    answer: str
+    citations: list
+
+@app.post("/export/word")
+def export_word(request: ExportRequest):
+
+    file_path = export_to_word(
+        request.question,
+        request.answer,
+        request.citations
+    )
+
+    return FileResponse(
+        path=file_path,
+        filename="response.docx",
+        media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+)
+
+@app.post("/export/excel")
+def export_excel(request: ExportRequest):
+
+    file_path = export_to_excel(
+        request.question,
+        request.answer,
+        request.citations
+    )
+
+    return FileResponse(
+        path=file_path,
+        filename="response.xlsx",
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )

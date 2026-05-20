@@ -80,6 +80,10 @@ if st.button("Ask"):
 
             data = response.json()
 
+
+            st.session_state.answer = data["answer"]
+            st.session_state.citations = data["citations"]
+
             # Display answer
             st.subheader("Answer")
 
@@ -96,3 +100,40 @@ if st.button("Ask"):
             st.subheader("Latency")
 
             st.write(f"{data['latency_seconds']} seconds")
+
+
+# Export options-Word
+if st.button("Export to Word"):
+
+    response = requests.post(
+        "http://127.0.0.1:8000/export/word",
+        json={
+            "question": question,
+            "answer": st.session_state.answer,
+            "citations": st.session_state.citations
+        }
+    )
+
+    with open("response.docx", "wb") as f:
+        f.write(response.content)
+
+    st.success("Word file downloaded")
+
+
+
+# Export options-Excel
+if st.button("Export to Excel"):
+
+    response = requests.post(
+        "http://127.0.0.1:8000/export/excel",
+        json={
+            "question": question,
+            "answer": st.session_state.answer,
+            "citations": st.session_state.citations
+        }
+    )
+
+    with open("response.xlsx", "wb") as f:
+        f.write(response.content)
+
+    st.success("Excel file downloaded")
