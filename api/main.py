@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi import UploadFile, File
 import json
+from core.logger import log_query
 from core.embed import create_embeddings
 from core.rag import ask_question
 import time
@@ -51,6 +52,20 @@ def ask(request: AskRequest):
     end_time = time.time()
 
     latency = round(end_time - start_time, 2)
+    
+    # Log the query
+    retrieved_chunks = []
+
+    for chunk_id in results["ids"][0]:
+
+        retrieved_chunks.append(chunk_id)
+
+    log_query(
+    question=question,
+    answer=answer,
+    latency=latency,
+    retrieved_chunks=retrieved_chunks
+    )
 
     citations = []
 
