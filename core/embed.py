@@ -3,15 +3,16 @@ from pathlib import Path
 
 import chromadb
 from sentence_transformers import SentenceTransformer
+from core.config import CHROMA_DB_PATH, EMBEDDING_MODEL
 
 
 CHUNKS_PATH = Path("data/processed/chunks.json")
 
 # Chroma DB storage folder
-CHROMA_DB_PATH = "data/chroma_db"
+CHROMA_DB_PATH = "CHROMA_DB_PATH"
 
 # Embedding model
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+EMBEDDING_MODEL = "EMBEDDING_MODEL"
 
 
 def load_chunks():

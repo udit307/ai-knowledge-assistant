@@ -1,0 +1,29 @@
+Exception Handling
+
+Exception: A sudden interruption which stops the flow of execution of the program is known as exception.
+           Handling these exception with the help of try and catch is known as exception handling.
+	** Exception is an event which stops the execution abnormally and the below line of code will never get executed.
+
+Error : It is also an event which stops the execution of the program but errors can not be handled and exception can be handled.
+	Error are of two type
+             ---> Compile time error : Compile time error occurs due to syntax error, Compiler will be aware of compile time error.
+             ---> Run-Time Error : Run time error is occurs due to logical problem e.g. Whenever we execute a program without main method we will get an ru                         				   time error known as main method not found error,  
+
+
+
+Unchecked Exception : 
+Compiler unknown or unaware exception are unchecked exception 
+                         e.g. AerithmaticException
+			      ArrayIndexOutOFBoundException
+			      StringIndexOutOfBoundException
+                              NullPinter exception
+                              Class cast Exception
+
+Checked Exception :
+ compiler aware or known exception are known as checked exception.
+                  e.g intruptedException
+		      file not foundException
+		      ClassNotFoundException
+
+NOTE: All the checked exceptions directly inherit properties from exception class.
+      All the unchecked Exception inherits properties from run time exception and runtime exception inherit properties from Exception class.

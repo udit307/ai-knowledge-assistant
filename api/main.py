@@ -18,6 +18,8 @@ from core.export_utils import (
     export_to_word,
     export_to_excel
 )
+from fastapi import Depends
+from core.security import verify_token
 
 
 app = FastAPI(
@@ -41,7 +43,10 @@ def home():
 
 #----------------- Question Answering Endpoint ----------------     
 @app.post("/ask")
-def ask(request: AskRequest):
+def ask(
+    request: AskRequest,
+    auth: str = Depends(verify_token)
+    ):
 
     question = request.question
 

@@ -3,6 +3,12 @@ import requests
 import time
 
 
+
+headers = {
+    "x-api-token": "mysecret123"
+}
+
+
 API_URL = "http://127.0.0.1:8000/ask"
 
 
@@ -73,9 +79,8 @@ if st.button("Ask"):
 
             response = requests.post(
                 API_URL,
-                json={
-                    "question": question
-                }
+                json={"question": question},
+                headers=headers
             )
 
             data = response.json()
